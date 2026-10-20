@@ -1,0 +1,8 @@
+# Dependencias del Sistema de Registro de Comparendos
+# Compatible con Python 3.9+
+#
+# Instalar con:
+#   pip install -r requirements.txt
+
+pandas>=2.0.0
+openpyxl>=3.1.0       # Motor de lectura/escritura de archivos .xlsx
