@@ -22,8 +22,12 @@ COLOR_ERROR         = "#962B2B"   # Rojo más saturado para botón peligro
 COLOR_ERROR_HOVER   = "#B23333"
 
 # Texto sobre botones primario/secundario → oscuro (contrasta sobre fondo claro)
-COLOR_BTN_TEXT      = "#1C1C1E"   # Negro sobre plateado/gris claro
-COLOR_BTN_TEXT_DANGER = "#FFFFFF" # Blanco sobre rojo
+COLOR_BTN_TEXT        = "#1C1C1E"   # Negro sobre plateado/gris claro
+COLOR_BTN_TEXT_DANGER = "#FFFFFF"   # Blanco sobre rojo
+
+# Texto del combobox: macOS ignora fieldbackground y muestra gris nativo del sistema,
+# por lo que se necesita texto oscuro para garantizar legibilidad en ambas plataformas
+COLOR_COMBO_TEXT = "#1C1C1E"        # Oscuro — legible sobre gris macOS o fondo claro Windows
 
 # Colores de estado (barra de estado)
 COLOR_SUCCESS = "#4CAF50"   # Verde éxito

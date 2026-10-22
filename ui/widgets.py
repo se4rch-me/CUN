@@ -70,7 +70,13 @@ class EntryField(tk.Entry):
 # ---------------------------------------------------------------------------
 
 class StyledCombo(ttk.Combobox):
-    """Combobox con tema aplicado via ttk.Style."""
+    """
+    Combobox con tema adaptado a macOS/Windows.
+
+    macOS no respeta `fieldbackground` de ttk.Style y renderiza su propio
+    fondo gris nativo. Por eso usamos texto oscuro (COLOR_COMBO_TEXT)
+    que es legible tanto sobre el gris nativo de macOS como en Windows.
+    """
 
     _style_init = False
 
@@ -85,6 +91,10 @@ class StyledCombo(ttk.Combobox):
         kwargs.setdefault("style", "Dark.TCombobox")
         super().__init__(master, values=values, **kwargs)
 
+        # Aplicar foreground directamente en la instancia:
+        # macOS ignora el valor del Style y hay que sobreescribirlo aqui
+        self.configure(foreground=S.COLOR_COMBO_TEXT)
+
 
 def _init_combo_style():
     style = ttk.Style()
@@ -93,11 +103,11 @@ def _init_combo_style():
         "Dark.TCombobox",
         fieldbackground=S.COLOR_BG,
         background=S.COLOR_SURFACE,
-        foreground=S.COLOR_TEXT,
-        selectforeground=S.COLOR_BTN_TEXT,      # oscuro — legible sobre selección gris
-        selectbackground=S.COLOR_BTN_SECONDARY, # gris medio como resaltado de selección
+        foreground=S.COLOR_COMBO_TEXT,           # oscuro: legible en gris nativo de macOS
+        selectforeground=S.COLOR_COMBO_TEXT,     # oscuro sobre resaltado
+        selectbackground=S.COLOR_BTN_SECONDARY,  # gris medio como resaltado
         bordercolor=S.COLOR_BORDER,
-        arrowcolor=S.COLOR_TEXT_MUTED,          # flecha visible pero discreta
+        arrowcolor=S.COLOR_TEXT_MUTED,
     )
 
 
