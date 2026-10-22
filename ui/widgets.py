@@ -109,13 +109,13 @@ class Button(tk.Button):
     """Botón primario con efecto hover."""
 
     def __init__(self, master, text: str, command=None, danger: bool = False, **kwargs):
-        bg = S.COLOR_ERROR if danger else S.COLOR_ACCENT
-        bg_hover = "#DC2626" if danger else S.COLOR_ACCENT_HOVER
+        bg       = S.COLOR_ERROR if danger else S.COLOR_ACCENT
+        bg_hover = "#9B3030" if danger else S.COLOR_ACCENT_HOVER
 
         kwargs.setdefault("bg", bg)
-        kwargs.setdefault("fg", S.COLOR_TEXT)
+        kwargs.setdefault("fg", S.COLOR_BTN_TEXT)            # siempre blanco
         kwargs.setdefault("activebackground", bg_hover)
-        kwargs.setdefault("activeforeground", S.COLOR_TEXT)
+        kwargs.setdefault("activeforeground", S.COLOR_BTN_TEXT)  # siempre blanco
         kwargs.setdefault("relief", "flat")
         kwargs.setdefault("font", S.FONT_BUTTON)
         kwargs.setdefault("width", S.BUTTON_WIDTH)

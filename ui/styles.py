@@ -6,19 +6,24 @@ Centralizar aquí permite cambiar el tema en un solo lugar.
 """
 
 # ---------------------------------------------------------------------------
-# PALETA PRINCIPAL
+# PALETA PRINCIPAL — tema gris neutro
 # ---------------------------------------------------------------------------
 
-COLOR_BG = "#0F172A"          # Fondo general (azul muy oscuro)
-COLOR_SURFACE = "#1E293B"     # Superficies (cards, frames)
-COLOR_BORDER = "#334155"      # Bordes sutiles
-COLOR_ACCENT = "#3B82F6"      # Azul primario (botones, selección)
-COLOR_ACCENT_HOVER = "#2563EB"  # Hover del acento
-COLOR_SUCCESS = "#22C55E"     # Verde éxito
-COLOR_WARNING = "#F59E0B"     # Amarillo advertencia
-COLOR_ERROR = "#EF4444"       # Rojo error
-COLOR_TEXT = "#F1F5F9"        # Texto principal
-COLOR_TEXT_MUTED = "#94A3B8"  # Texto secundario
+COLOR_BG      = "#1C1C1E"   # Fondo general (gris antracita)
+COLOR_SURFACE = "#2C2C2E"   # Superficies: cards, frames, header
+COLOR_BORDER  = "#48484A"   # Bordes sutiles
+
+COLOR_ACCENT       = "#3A3F4B"   # Botón primario: gris-azulado oscuro
+COLOR_ACCENT_HOVER = "#4A5160"   # Hover del botón primario
+COLOR_SUCCESS = "#4CAF50"        # Verde apagado (estado OK)
+COLOR_WARNING = "#C9912A"        # Ámbar oscuro (advertencia)
+COLOR_ERROR   = "#7A2828"        # Burdeos (botón peligro / error)
+
+COLOR_TEXT       = "#FFFFFF"     # Texto sobre fondos oscuros
+COLOR_TEXT_MUTED = "#AEAEB2"     # Texto secundario (labels, ayuda)
+
+# Texto sobre botones — siempre blanco para garantizar legibilidad
+COLOR_BTN_TEXT = "#FFFFFF"
 
 # ---------------------------------------------------------------------------
 # FUENTES
