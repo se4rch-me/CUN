@@ -1,5 +1,9 @@
 # Sistema de Registro de Comparendos — CUN
 
+[![GitHub](https://img.shields.io/badge/GitHub-se4rch--me%2FCUN-181717?logo=github)](https://github.com/se4rch-me/CUN)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![License](https://img.shields.io/badge/Licencia-MIT-green)](LICENSE)
+
 Aplicación de escritorio para el registro y consulta de comparendos de tránsito,
 desarrollada con Python + tkinter (UI nativa sin instalación adicional).
 
