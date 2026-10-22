@@ -94,10 +94,10 @@ def _init_combo_style():
         fieldbackground=S.COLOR_BG,
         background=S.COLOR_SURFACE,
         foreground=S.COLOR_TEXT,
-        selectforeground=S.COLOR_TEXT,
-        selectbackground=S.COLOR_ACCENT,
+        selectforeground=S.COLOR_BTN_TEXT,      # oscuro — legible sobre selección gris
+        selectbackground=S.COLOR_BTN_SECONDARY, # gris medio como resaltado de selección
         bordercolor=S.COLOR_BORDER,
-        arrowcolor=S.COLOR_TEXT,
+        arrowcolor=S.COLOR_TEXT_MUTED,          # flecha visible pero discreta
     )
 
 
@@ -106,16 +106,29 @@ def _init_combo_style():
 # ---------------------------------------------------------------------------
 
 class Button(tk.Button):
-    """Botón primario con efecto hover."""
+    """
+    Botón con tres variantes de color:
+      - Normal   : fondo plateado claro  / texto oscuro  → máximo contraste
+      - secondary: fondo gris medio      / texto oscuro
+      - danger   : fondo rojo saturado   / texto blanco
+    """
 
-    def __init__(self, master, text: str, command=None, danger: bool = False, **kwargs):
-        bg       = S.COLOR_ERROR if danger else S.COLOR_ACCENT
-        bg_hover = "#9B3030" if danger else S.COLOR_ACCENT_HOVER
+    def __init__(self, master, text: str, command=None,
+                 danger: bool = False, secondary: bool = False, **kwargs):
+        if danger:
+            bg, bg_hover = S.COLOR_ERROR, S.COLOR_ERROR_HOVER
+            fg = S.COLOR_BTN_TEXT_DANGER          # blanco sobre rojo
+        elif secondary:
+            bg, bg_hover = S.COLOR_BTN_SECONDARY, S.COLOR_BTN_SEC_HOVER
+            fg = S.COLOR_BTN_TEXT                 # oscuro sobre gris medio
+        else:
+            bg, bg_hover = S.COLOR_ACCENT, S.COLOR_ACCENT_HOVER
+            fg = S.COLOR_BTN_TEXT                 # oscuro sobre plateado
 
         kwargs.setdefault("bg", bg)
-        kwargs.setdefault("fg", S.COLOR_BTN_TEXT)            # siempre blanco
+        kwargs.setdefault("fg", fg)
         kwargs.setdefault("activebackground", bg_hover)
-        kwargs.setdefault("activeforeground", S.COLOR_BTN_TEXT)  # siempre blanco
+        kwargs.setdefault("activeforeground", fg)
         kwargs.setdefault("relief", "flat")
         kwargs.setdefault("font", S.FONT_BUTTON)
         kwargs.setdefault("width", S.BUTTON_WIDTH)
@@ -123,10 +136,11 @@ class Button(tk.Button):
         kwargs.setdefault("pady", 6)
         super().__init__(master, text=text, command=command, **kwargs)
 
-        self._bg = kwargs["bg"]
+        self._bg = bg
         self._bg_hover = bg_hover
         self.bind("<Enter>", lambda _: self.config(bg=self._bg_hover))
         self.bind("<Leave>", lambda _: self.config(bg=self._bg))
+
 
 
 # ---------------------------------------------------------------------------
@@ -156,11 +170,11 @@ class DataTable(tk.Frame):
         style.configure(
             "Dark.Treeview.Heading",
             background=S.COLOR_SURFACE,
-            foreground=S.COLOR_ACCENT,
+            foreground=S.COLOR_TEXT_MUTED,   # gris claro: legible, no compite con botones
             font=(S.FONT_TABLE[0], S.FONT_TABLE[1], "bold"),
             relief="flat",
         )
-        style.map("Dark.Treeview", background=[("selected", S.COLOR_ACCENT)])
+        style.map("Dark.Treeview", background=[("selected", S.COLOR_BTN_SECONDARY)])
 
         self.tree = ttk.Treeview(
             self,

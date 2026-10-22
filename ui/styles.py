@@ -13,17 +13,24 @@ COLOR_BG      = "#1C1C1E"   # Fondo general (gris antracita)
 COLOR_SURFACE = "#2C2C2E"   # Superficies: cards, frames, header
 COLOR_BORDER  = "#48484A"   # Bordes sutiles
 
-COLOR_ACCENT       = "#3A3F4B"   # Botón primario: gris-azulado oscuro
-COLOR_ACCENT_HOVER = "#4A5160"   # Hover del botón primario
-COLOR_SUCCESS = "#4CAF50"        # Verde apagado (estado OK)
-COLOR_WARNING = "#C9912A"        # Ámbar oscuro (advertencia)
-COLOR_ERROR   = "#7A2828"        # Burdeos (botón peligro / error)
+# Botones: fondo CLARO sobre fondo oscuro → contraste garantizado
+COLOR_ACCENT        = "#D1D1D6"   # Botón primario: gris plateado claro
+COLOR_ACCENT_HOVER  = "#E5E5EA"   # Hover: aún más claro
+COLOR_BTN_SECONDARY = "#8E8E93"   # Botón secundario: gris medio
+COLOR_BTN_SEC_HOVER = "#A0A0A8"   # Hover secundario
+COLOR_ERROR         = "#962B2B"   # Rojo más saturado para botón peligro
+COLOR_ERROR_HOVER   = "#B23333"
 
-COLOR_TEXT       = "#FFFFFF"     # Texto sobre fondos oscuros
-COLOR_TEXT_MUTED = "#AEAEB2"     # Texto secundario (labels, ayuda)
+# Texto sobre botones primario/secundario → oscuro (contrasta sobre fondo claro)
+COLOR_BTN_TEXT      = "#1C1C1E"   # Negro sobre plateado/gris claro
+COLOR_BTN_TEXT_DANGER = "#FFFFFF" # Blanco sobre rojo
 
-# Texto sobre botones — siempre blanco para garantizar legibilidad
-COLOR_BTN_TEXT = "#FFFFFF"
+# Colores de estado (barra de estado)
+COLOR_SUCCESS = "#4CAF50"   # Verde éxito
+COLOR_WARNING = "#C9912A"   # Ámbar advertencia
+
+COLOR_TEXT       = "#FFFFFF"   # Texto general sobre fondos oscuros
+COLOR_TEXT_MUTED = "#AEAEB2"  # Texto secundario
 
 # ---------------------------------------------------------------------------
 # FUENTES

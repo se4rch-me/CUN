@@ -99,7 +99,7 @@ class RegistroView(tk.Frame):
         btn_row = tk.Frame(card, bg=S.COLOR_SURFACE)
         btn_row.grid(row=len(_CAMPOS), column=0, columnspan=2, pady=(S.PAD_OUTER, 0), sticky="w")
         Button(btn_row, text="Guardar Comparendo", command=self._guardar).pack(side="left")
-        Button(btn_row, text="Limpiar Campos",     command=self.limpiar).pack(side="left", padx=(S.PAD_WIDGET, 0))
+        Button(btn_row, text="Limpiar Campos", command=self.limpiar, secondary=True).pack(side="left", padx=(S.PAD_WIDGET, 0))
 
     def _build_help(self, card: CardFrame) -> None:
         card.grid(row=1, column=1, sticky="nw", padx=(S.PAD_INNER, 0))
